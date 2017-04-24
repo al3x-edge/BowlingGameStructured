@@ -1,18 +1,17 @@
-class Game
-  def initialize
-    @frames = [0,0,0,0,0,0,0,0,0,0]
-    @current_frame = 0
-  end
+require_relative "./frame"
 
-  def frames
-    @frames
+class Game
+  attr_accessor :frames
+  attr_reader :current_frame
+  attr_reader :score
+
+  def initialize
+    @frames = []
+    @current_frame = 1
+    @score = 0
   end
 
   def score
-    0
-  end
-
-  def current_frame
-    @current_frame + 1
+    @score
   end
 end

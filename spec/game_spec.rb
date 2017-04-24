@@ -4,8 +4,8 @@ describe Game do
   let(:game) { Game.new }
 
   context "a new game" do
-    it "has 10 frames" do
-      expect(game.frames.length).to eq 10
+    it "has 0 frames" do
+      expect(game.frames.length).to eq 0
     end
 
     it "has a score of 0" do
@@ -16,4 +16,5 @@ describe Game do
       expect(game.current_frame).to eq 1
     end
   end
+
 end
