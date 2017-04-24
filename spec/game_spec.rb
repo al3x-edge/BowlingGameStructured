@@ -28,6 +28,23 @@ describe Game do
     expect(game.score).to eq 20
   end
 
+  it "should have a total score of 24 with a strike and then a 4 and 3" do
+    game.roll(10)
+    game.roll(4)
+    game.roll(3)
+
+    expect(game.score).to eq 24
+  end
+
+  it "should have a total score of 21 with a spare and then a 4 and 3" do
+    game.roll(5)
+    game.roll(5)
+    game.roll(4)
+    game.roll(3)
+
+    expect(game.score).to eq 21
+  end
+
   it "is considered finished if in the tenth frame" do
     roll_many(game, 20, 1)
     expect(game.finished?).to be_truthy
