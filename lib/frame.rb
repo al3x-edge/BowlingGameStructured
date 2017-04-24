@@ -1,5 +1,5 @@
 class Frame
-  attr_accessor :frame_score
+  attr_reader :ball_rolls
 
   def initialize
     @ball_rolls = []

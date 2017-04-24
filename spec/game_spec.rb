@@ -45,6 +45,22 @@ describe Game do
     expect(game.score).to eq 21
   end
 
+  it "should have a total score of 240 for 9 strikes" do
+    roll_many(game, 9, 10)
+    expect(game.score).to eq 240
+  end
+
+  it "should have a total score of 160 for 4 strikes followed by 4 spares" do
+    roll_many(game, 4, 10)
+    roll_many(game, 8, 5)
+    expect(game.score).to eq 160
+  end
+
+  it "should have a total score of 300 for a perfect game (12 strikes)" do
+    roll_many(game, 12, 10)
+    expect(game.score).to eq 300
+  end
+
   it "is considered finished if in the tenth frame" do
     roll_many(game, 20, 1)
     expect(game.finished?).to be_truthy

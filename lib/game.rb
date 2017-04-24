@@ -30,9 +30,17 @@ class Game
 
     @frames.each_with_index do |frame, index|
       if frame.strike?
-        score += frame.score + @frames[index+1].bonus_score_for_strike
+        score += frame.score
+
+        next_frame = @frames[index + 1]
+        second_frame = @frames[index + 2]
+
+        score += next_frame.bonus_score_for_strike if !next_frame.nil?
+        score += second_frame.ball_rolls.first if !second_frame.nil? && next_frame.strike?
       elsif frame.spare?
-        score += frame.score + @frames[index+1].bonus_score_for_spare
+        score += frame.score
+        next_frame = @frames[index + 1]
+        score +=  next_frame.bonus_score_for_spare if !next_frame.nil?
       else
         score += frame.score
       end
